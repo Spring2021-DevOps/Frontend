@@ -54,22 +54,20 @@ const useStyles = makeStyles((theme) => ({
 const Compose = () => {
   const classes = useStyles();
   const history = useHistory();
-  const [tweet, setTweet] = useState('');
-  const [username, setUsername] = useState('');
-  const [start, setStart] = useState('');
-  const [end, setEnd] = useState('');
-  const [date, setDate] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [source, setSource] = useState('');
+  const [destination, setDestination] = useState('');
+  const [journeyDate, setJourneyDate] = useState('');
 
   // async launch POST
-  const postTweet = async (user, description, priv, pic, startp, endp, datep) => {
+  const postTweet = async (firstNameP, lastNameP, sourceP, destinationP, journeyDateP) => {
     const paramdict = {
-      'user': user,
-      'description': description,
-      'private': priv,
-      'pic': pic,
-      'startp': startp,
-      'endp': endp,
-      'datep': datep
+      'firstNameP': firstNameP,
+      'lastNameP': lastNameP,
+      'sourceP': sourceP,
+      'destinationP': destinationP,
+      'journeydDateP': journeyDateP
     }
 
     try {
@@ -112,15 +110,15 @@ const Compose = () => {
 
     const priv = true;
     //const username = 'Elon Musk';
-    const myArray = [
-      "women",
-      "men"
-    ];
-    const img_gender = myArray[Math.floor(Math.random()*myArray.length)];
-    const img_index = Math.floor(Math.random() * 100) + 1 ;
-    const img_url = 'https://randomuser.me/api/portraits/' + img_gender + '/' + img_index.toString() + '.jpg';
+  //  const myArray = [
+  //    "women",
+  //    "men"
+  //  ];
+   // const img_gender = myArray[Math.floor(Math.random()*myArray.length)];
+   // const img_index = Math.floor(Math.random() * 100) + 1 ;
+   // const img_url = 'https://randomuser.me/api/portraits/' + img_gender + '/' + img_index.toString() + '.jpg';
     
-    postTweet(username, tweet, priv, img_url, start, end, date);  
+    postTweet(firstName, lastName, source, destination, journeyDate);  
     alert('Your trip has been Booked!');
   }
 
@@ -133,74 +131,74 @@ const Compose = () => {
           </Typography>
           <form className={classes.form} onSubmit={handleSubmit} noValidate>
             <TextField
-              value={username}
-              onInput={(e) => setUsername(e.target.value)}
+              value={firstName}
+              onInput={(e) => setFirstName(e.target.value)}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="username"
-              label={'User Name'}
-              name="username"
-              autoComplete="username"
+              id="firstName"
+              label={'First Name'}
+              name="firstName"
+              autoComplete="firstName"
               autoFocus
             />
             <TextField
-             value={tweet} 
-               onInput={(e) => setTweet(e.target.value)} 
+              value={lastName}
+              onInput={(e) => setLastName(e.target.value)}
+              variant="outlined"
+              margin="normal"
+              required
+              fullWidth
+              id="lastName"
+              label={'Last Name'}
+              name="lastName"
+              autoComplete="lastName"
+              autoFocus
+            />
+            <TextField
+             value={source} 
+               onInput={(e) => setSource(e.target.value)} 
                variant="outlined" 
                margin="normal" 
                required 
                fullWidth 
-               id="tweet" 
-               label={'Tweet'} 
-               name="tweet" 
-               autoComplete="tweet" 
+               id="source" 
+               label={'Source'} 
+               name="source" 
+               autoComplete="source" 
                autoFocus 
              /> 
            
             <TextField
-              value={start}
-              onInput={(e) => setStart(e.target.value)}
+              value={destination}
+              onInput={(e) => setDestination(e.target.value)}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="start"
-              label={'Start Destination'}
-              name="start"
-              autoComplete="start"
+              id="destination"
+              label={'Destination'}
+              name="destination"
+              autoComplete="destination"
               autoFocus
             />
 
             <TextField
-              value={end}
-              onInput={(e) => setEnd(e.target.value)}
+              value={journeyDate}
+              onInput={(e) => setJourneyDate(e.target.value)}
               variant="outlined"
               margin="normal"
               required
               fullWidth
-              id="end"
-              label={'End Destination'}
-              name="end"
-              autoComplete="end"
-              autoFocus
-            />
-
-            <TextField
-              value={date}
-              onInput={(e) => setDate(e.target.value)}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="date"
-              label={'Date of the Trip'}
+              id="journeyDate"
+              label={'Journey Date'}
               type="date"
-              name="date"
-              autoComplete="date"
+              name="journeyDate"
+              autoComplete="journeyDate"
               autoFocus
             />
+
             
 
             <Button

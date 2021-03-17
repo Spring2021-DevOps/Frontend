@@ -4,7 +4,7 @@ import TweetList from "./TweetList";
 //import axios from 'axios';
 
 const THome = () => {
-  const [tweets, setTweets] = React.useState([]);
+  const [bookings, setBookings] = React.useState([]);
   const [loading, setLoading] = React.useState(true);   
   
   useEffect(() => {
@@ -12,7 +12,7 @@ const THome = () => {
 	  const res = await fetch("http://0.0.0.0:5000/bookings");
       const { results } = await res.json();
       console.log(results);
-      setTweets([...results]);
+      setBookings([...results]);
 	  setLoading(false);
     };
  
@@ -28,7 +28,7 @@ const THome = () => {
 		  size="large"
 	    />
 	  ) : (
-	    <TweetList tweets={tweets} />
+	    <TweetList bookings={bookings} />
 	  )}
     </ScrollView>
   );
