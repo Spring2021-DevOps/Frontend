@@ -9,7 +9,7 @@ const THome = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-	  const res = await fetch("http://0.0.0.0:5000/tweets-results");
+	  const res = await fetch("http://0.0.0.0:5000/bookings");
       const { results } = await res.json();
       console.log(results);
       setTweets([...results]);
