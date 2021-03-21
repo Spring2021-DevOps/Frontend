@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { Router, Route, Link } from "react-router-dom";
+import { Router, Route, Link, Switch } from "react-router-dom";
 import { createBrowserHistory } from "history";
 
 import AppBar from '@material-ui/core/AppBar';
@@ -264,7 +264,7 @@ export default function Dashboard() {
 
         {/* This is your mission control: Matches URLs above to your components */}
         <main className={classes.content}>
-
+        <Switch>
           {/* menu paths */}
           <Route exact path="/" component={Home} />
           <Route path="/bookings" component={THome} />
@@ -275,6 +275,7 @@ export default function Dashboard() {
           <Route path="/password_change" component={PasswordChange} />
           <Route component={NotFound} />
           {/* <Route path="/activity"><ActivityHome /></Route> */}
+          </Switch>
         </main>
       </Router>
       

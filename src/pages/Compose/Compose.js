@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button'
 import Paper from '@material-ui/core/Paper'
 //import MenuContext from 'material-ui-shell/lib/providers/Menu/Context'
 import { Link } from 'react-router-dom'
+import swal from 'sweetalert';
 
 let formatTwoDigits = (digit) => ("0" + digit).slice(-2);
 var tempDate = new Date();
@@ -88,10 +89,12 @@ const Compose = () => {
       if (response.ok) {
           //return json
           //return response
+          swal("Your Trip Is Confirmed!");
           console.log("success on send.");
           
       } else {
-          alert("launch: failure on send!");
+          console.log("launch: failure on send!");
+          swal("Some Issue Occurred");
       }
 
       try {
@@ -110,7 +113,7 @@ const Compose = () => {
   };
 
   function handleSubmit(event) {
-    alert("fffddd")
+    //alert("fffddd")
 
     event.preventDefault()
 
@@ -125,7 +128,7 @@ const Compose = () => {
    // const img_url = 'https://randomuser.me/api/portraits/' + img_gender + '/' + img_index.toString() + '.jpg';
     
     postTweet(firstName, lastName, source, destination, journeyDate);  
-    alert('Your trip has been Booked!');
+    //alert('Your trip has been Booked!');
   }
 
   return (
@@ -194,7 +197,6 @@ const Compose = () => {
             <TextField
               value={journeyDate}
               onInput={(e) => setJourneyDate(e.target.value)}
-              min="abc"
               variant="outlined"
               margin="normal"
               required
