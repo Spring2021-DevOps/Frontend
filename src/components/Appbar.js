@@ -258,19 +258,7 @@ export default function Dashboard() {
             </ListItem>
 
             {/* SignUp menu item */}
-            <ListItem button component={Link} to="/signin" onClick={onItemClick('Sign In')}>
-              <ListItemIcon>
-                <LayersIcon />
-              </ListItemIcon>
-              <ListItemText primary="Sign In" />
-              { title === 'Sign In' && 
-                <ListItemIcon>
-                  <IconButton onClick={handleDrawerCollapsed}>
-                    <ChevronLeftIcon />
-                  </IconButton>
-                </ListItemIcon>
-              }
-            </ListItem>
+
           </List>
         </Drawer>
 

@@ -4,14 +4,14 @@ import { View, Image, Text, StyleSheet } from "react-native";
 const TweetItem = ({ item: booking }) => {
   return (
     <View style={styles.row}>
-      <Image style={styles.rowIcon} source={"../../../uber.png"} />
+      <Image style={styles.rowIcon} source={""} />
       <View style={styles.rowData}>
   
-        <Text style={styles.rowDataSubText}>First Name : {booking.firstName}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Last Name :{booking.lastName}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Source :{booking.source}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Destination :{booking.destination}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Journey Date :{booking.journeyDate}</Text><br></br>
+        <Text style={styles.rowDataSubText}>First Name           : {booking.firstName}</Text><br></br>
+        <Text style={styles.rowDataSubText}>Last Name            : {booking.lastName}</Text><br></br>
+        <Text style={styles.rowDataSubText}>Source                   : {booking.source}</Text><br></br>
+        <Text style={styles.rowDataSubText}>Destination          : {booking.destination}</Text><br></br>
+        <Text style={styles.rowDataSubText}>Journey Date       : {booking.journeyDate}</Text><br></br>
 
       </View>
     </View>
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 15,
-    marginBottom: 5,
+    marginBottom: 25,
     backgroundColor: "white",
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "rgba(0,0,0,0.1)"
@@ -50,9 +50,9 @@ const styles = StyleSheet.create({
     color: "#4b4b4b"
   },
   rowDataSubText: {
-    fontSize: 13,
-    opacity: 0.8,
-    color: "#a8a689",
+    fontSize: 17,
+    opacity: 0.9,
+    color: "black",
     marginTop: 4
   }
 });

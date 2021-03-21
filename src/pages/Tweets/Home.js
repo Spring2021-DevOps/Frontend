@@ -9,6 +9,7 @@ const THome = () => {
   
   useEffect(() => {
     const fetchData = async () => {
+    //  const res = await fetch("http://0.0.0.0:5000/bookings");
 	  const res = await fetch("http://3.218.217.147:5000/bookings");
       const { results } = await res.json();
       console.log(results);
@@ -36,8 +37,9 @@ const THome = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "whitesmoke",
-    marginTop: '60px'
+    backgroundColor: "black",
+    marginTop: '60px',
+    opacity: 0.8
   },
   centering: {
     alignItems: "center",
