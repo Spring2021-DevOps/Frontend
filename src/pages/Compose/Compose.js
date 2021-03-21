@@ -11,6 +11,9 @@ import Paper from '@material-ui/core/Paper'
 //import MenuContext from 'material-ui-shell/lib/providers/Menu/Context'
 import { Link } from 'react-router-dom'
 
+let formatTwoDigits = (digit) => ("0" + digit).slice(-2);
+var tempDate = new Date();
+
 const useStyles = makeStyles((theme) => ({
   
   paper: {
@@ -106,6 +109,8 @@ const Compose = () => {
   };
 
   function handleSubmit(event) {
+    alert("fffddd")
+
     event.preventDefault()
 
     const priv = true;
@@ -129,7 +134,7 @@ const Compose = () => {
           <Typography component="h1" variant="h5">
             {'Book an UBER Bus Trip'}
           </Typography>
-          <form className={classes.form} onSubmit={handleSubmit} noValidate>
+          <form className={classes.form} onSubmit={handleSubmit} >
             <TextField
               value={firstName}
               onInput={(e) => setFirstName(e.target.value)}
@@ -184,9 +189,11 @@ const Compose = () => {
               autoFocus
             />
 
+
             <TextField
               value={journeyDate}
               onInput={(e) => setJourneyDate(e.target.value)}
+              min="abc"
               variant="outlined"
               margin="normal"
               required
@@ -196,6 +203,10 @@ const Compose = () => {
               type="date"
               name="journeyDate"
               autoComplete="journeyDate"
+              inputProps={{
+                min: `${tempDate.getFullYear()}-${formatTwoDigits(tempDate.getMonth()+1)}-${formatTwoDigits(tempDate.getDate())}`,
+                max: `${tempDate.getFullYear()}-${formatTwoDigits(tempDate.getMonth()+3)}-${formatTwoDigits(tempDate.getDate())}`
+              }}
               autoFocus
             />
 

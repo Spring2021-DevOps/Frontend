@@ -35,6 +35,7 @@ import PasswordReset from "../pages/PasswordReset/PasswordReset";
 import PasswordChange from "../pages/PasswordChange/PasswordChange";
 import THome from "../pages/Tweets/Home";
 import Compose from "../pages/Compose/Compose";
+import { NotFound } from "../pages/NotFound";
 
 const drawerWidth = 240;
 const history = createBrowserHistory();
@@ -284,6 +285,7 @@ export default function Dashboard() {
           <Route path="/signup" component={SignUp} />
           <Route path="/password_reset" component={PasswordReset} />
           <Route path="/password_change" component={PasswordChange} />
+          <Route component={NotFound} />
           {/* <Route path="/activity"><ActivityHome /></Route> */}
         </main>
       </Router>
