@@ -64,89 +64,90 @@ const SignIn = () => {
     //.. return userid
 
     // save more: name, group, userid
-    authenticate({
-      displayName: 'User',
-      email: username,
-    })
+//    authenticate({
+//      displayName: 'User',
+//      email: username,
+//    })
   }
 
-  const authenticate = (user) => {
-    saveAuthorisation(user)
-    let _location = history.location
-    let isAuth = isAuthorised()
-    //setAuthMenuOpen(false)
-    if (isAuth) {
-      let _route = '/home'
-      if (_location.state && _location.state.from) {
-        _route = _location.state.from.pathname
-        history.push(_route)
-      } else {
-        history.push(_route)
-      }
+  const [emailInput, setEmailInput] = useState('');
+const [passwordInput, setPasswordInput] = useState('');
+
+//const history = useHistory();
+
+const handleEmailChange = (e) => {
+    setEmailInput(e.target.value);
+}
+
+const handlePasswordChange = (e) => {
+    setPasswordInput(e.target.value);
+}
+
+const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    let hardcodedCred = {
+        email: 'uberadmin@gmail.com',
+        password: 'password123'
     }
-  }
 
-  return (
-    <React.Fragment>
-      <Paper className={classes.paper} elevation={6}>
-        <div className={classes.container}>
-          <Typography component="h1" variant="h5">
-            {'Sign In'}
-          </Typography>
-          <form className={classes.form} onSubmit={handleSubmit} noValidate>
-            <TextField
-              value={username}
-              onInput={(e) => setUsername(e.target.value)}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label={'Username'}
-              name="username"
-              autoComplete="username"
-              autoFocus
-            />
-            <TextField
-              value={password}
-              onInput={(e) => setPassword(e.target.value)}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label={'Password'}
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <Button
-              style={{ background: 'black' }}
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              {'Sign in'}
-            </Button>
-          </form>
+    if ((emailInput == hardcodedCred.email) && (passwordInput == hardcodedCred.password)) {
+        //combination is good. Log them in.
+        //this token can be anything. You can use random.org to generate a random string;
+        const token = '123456abcdef';
+        sessionStorage.setItem('auth-token', token);
+        //go to www.website.com/todo
+        history.push('/bookings');
+    } else {
+        //bad combination
+        alert('wrong email or password combination');
+    }
+}
 
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              width: '100%',
-              justifyContent: 'space-between',
-            }}
-          >
-            <Link to="/password_reset">Forgot Password?</Link>
-            <Link to="/signup">Register</Link>
-          </div>
-        </div>
-      </Paper>
-    </React.Fragment>
-  )
+const mystyle = {
+  color: "white",
+  marginTop :200,
+  marginLeft: 300,
+  marginRight:300,
+  border: '2px solid black',
+  fontFamily: "Arial",
+  textAlign: 'center',
+  backgroundColor: 'black',
+  opacity: 0.7
+  
+};
+
+return (
+    <div className="login-page" style={mystyle} >
+        <h1>Admin Login</h1>
+        <form autoComplete="off" onSubmit={handleLoginSubmit}>
+            <div className="form-group">
+                <input
+                type="email"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                placeholder="Enter email"
+                value={emailInput}
+                onChange={handleEmailChange}
+                />
+            </div><br></br>
+            <div className="form-group">
+                <input
+                type="password"
+                autoComplete="new-password"
+                className="form-control"
+                id="exampleInputPassword1"
+                placeholder="Password"
+                value={passwordInput}
+                onChange={handlePasswordChange}
+                />
+            </div><br></br>
+            <button type="submit" className="btn btn-primary">
+                Submit
+            </button><br></br><br></br>
+      </form>
+    </div>
+  );
 }
 
 export default SignIn
