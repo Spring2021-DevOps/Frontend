@@ -9,12 +9,15 @@ import Button from '@material-ui/core/Button'
 //import Button from '@material-ui/Button'
 import Paper from '@material-ui/core/Paper'
 //import MenuContext from 'material-ui-shell/lib/providers/Menu/Context'
-import { Link } from 'react-router-dom'
 import swal from 'sweetalert';
 
 
 let formatTwoDigits = (digit) => ("0" + digit).slice(-2);
 var tempDate = new Date();
+
+require('dotenv').config()
+
+const { PYTHON_HOST } = process.env;
 
 const useStyles = makeStyles((theme) => ({
   
@@ -85,7 +88,8 @@ const Compose = () => {
           body: JSON.stringify(paramdict)
       }
       //const response = await fetch("http://0.0.0.0:5000/book-trip", config);
-      const response = await fetch("http://3.218.217.147:5000/book-trip", config);
+      var url = "http://" + PYTHON_HOST + ":5000/book-trip"
+      const response = await fetch(url, config);
       //const json = await response.json()
       if (response.ok) {
           //return json
