@@ -35,6 +35,7 @@ import PasswordReset from "../pages/PasswordReset/PasswordReset";
 import PasswordChange from "../pages/PasswordChange/PasswordChange";
 import THome from "../pages/Tweets/Home";
 import Compose from "../pages/Compose/Compose";
+import Charts from "../pages/Charts/Charts";
 import { NotFound } from "../pages/NotFound";
 
 const drawerWidth = 240;
@@ -258,6 +259,19 @@ export default function Dashboard() {
             </ListItem>
 
             {/* SignUp menu item */}
+            <ListItem button component={Link} to="/analysis" onClick={onItemClick('Get Analysis')}>
+              <ListItemIcon>
+                <DashboardIcon />
+              </ListItemIcon>
+              <ListItemText primary="Get Analysis" />
+              { title === 'Get Analysis' && 
+                <ListItemIcon>
+                  <IconButton onClick={handleDrawerCollapsed}>
+                    <ChevronLeftIcon />
+                  </IconButton>
+                </ListItemIcon>
+              }
+            </ListItem>
 
           </List>
         </Drawer>
@@ -273,6 +287,7 @@ export default function Dashboard() {
           <Route path="/signup" component={SignUp} />
           <Route path="/password_reset" component={PasswordReset} />
           <Route path="/password_change" component={PasswordChange} />
+          <Route path="/analysis" component={Charts} />
           <Route component={NotFound} />
           {/* <Route path="/activity"><ActivityHome /></Route> */}
           </Switch>

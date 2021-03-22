@@ -12,6 +12,7 @@ import Paper from '@material-ui/core/Paper'
 import { Link } from 'react-router-dom'
 import swal from 'sweetalert';
 
+
 let formatTwoDigits = (digit) => ("0" + digit).slice(-2);
 var tempDate = new Date();
 
@@ -84,7 +85,7 @@ const Compose = () => {
           body: JSON.stringify(paramdict)
       }
       //const response = await fetch("http://0.0.0.0:5000/book-trip", config);
-      const response = await fetch("http://3.218.217.147:5000/book-trip", config);
+      const response = await fetch("http://localhost:5000/book-trip", config);
       //const json = await response.json()
       if (response.ok) {
           //return json
