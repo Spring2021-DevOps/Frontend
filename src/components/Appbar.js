@@ -229,7 +229,7 @@ export default function Dashboard() {
           <List>
 
             {/* Bookings menu item*/}
-            <ListItem button component={Link} to="/bookings" onClick={onItemClick('Bookings')}>
+            <ListItem button component={Link} to="/signin" onClick={onItemClick('Bookings')}>
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>

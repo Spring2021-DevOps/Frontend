@@ -150,6 +150,7 @@ const Compose = () => {
               id="firstName"
               label={'First Name'}
               name="firstName"
+              inputProps={{ pattern: "^[a-zA-Z]+$" }}
               autoComplete="firstName"
               autoFocus
             />
@@ -163,6 +164,7 @@ const Compose = () => {
               id="lastName"
               label={'Last Name'}
               name="lastName"
+              inputProps={{ pattern: "^[a-zA-Z]+$" }}
               autoComplete="lastName"
               autoFocus
             />
