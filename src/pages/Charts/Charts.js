@@ -72,6 +72,7 @@ export default class Charts extends React.Component {
                         ticks: {
                             beginAtZero: true,
                             fontColor: "white",
+                            stepSize: 1
                         }
                     }]
                 },
