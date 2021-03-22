@@ -28,7 +28,7 @@ export default class Charts extends React.Component {
       }
       async componentDidMount() {
         console.log("I am in mount");
-        await axios("http://0.0.0.0:5000/analysis").then(
+        await axios("http://3.218.217.147:5000/analysis").then(
             (response) => {
                 this.setState({
                     labels: response.data.city,
