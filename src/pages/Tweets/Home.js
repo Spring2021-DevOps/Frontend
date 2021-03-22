@@ -3,6 +3,10 @@ import { ScrollView, StyleSheet, ActivityIndicator } from "react-native";
 import TweetList from "./TweetList";
 //import axios from 'axios';
 
+require('dotenv').config()
+
+const { REACT_APP_PYTHON_HOST } = process.env;
+
 const THome = () => {
   const [bookings, setBookings] = React.useState([]);
   const [loading, setLoading] = React.useState(true);   
@@ -10,7 +14,8 @@ const THome = () => {
   useEffect(() => {
     const fetchData = async () => {
     //  const res = await fetch("http://0.0.0.0:5000/bookings");
-	  const res = await fetch("http://3.218.217.147:5000/bookings");
+    var url = "http://"+ REACT_APP_PYTHON_HOST + ":5000/bookings";
+	  const res = await fetch(url);
       const { results } = await res.json();
       console.log(results);
       setBookings([...results]);

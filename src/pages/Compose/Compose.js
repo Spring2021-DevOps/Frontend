@@ -17,7 +17,7 @@ var tempDate = new Date();
 
 require('dotenv').config()
 
-const { PYTHON_HOST } = process.env;
+const { REACT_APP_PYTHON_HOST } = process.env;
 
 const useStyles = makeStyles((theme) => ({
   
@@ -88,7 +88,7 @@ const Compose = () => {
           body: JSON.stringify(paramdict)
       }
       //const response = await fetch("http://0.0.0.0:5000/book-trip", config);
-      var url = "http://" + PYTHON_HOST + ":5000/book-trip"
+      var url = "http://" + REACT_APP_PYTHON_HOST + ":5000/book-trip"
       const response = await fetch(url, config);
       //const json = await response.json()
       if (response.ok) {

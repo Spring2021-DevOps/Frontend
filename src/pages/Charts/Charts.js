@@ -1,8 +1,12 @@
 import React from 'react'
 import {Bar} from 'react-chartjs-2';
 import axios from "axios";
-export default class Charts extends React.Component {
 
+require('dotenv').config()
+
+const { REACT_APP_PYTHON_HOST } = process.env;
+
+export default class Charts extends React.Component {
 
     constructor(props) {
         super(props);
@@ -28,7 +32,8 @@ export default class Charts extends React.Component {
       }
       async componentDidMount() {
         console.log("I am in mount");
-        await axios("http://3.218.217.147:5000/analysis").then(
+        var url = "http://" + REACT_APP_PYTHON_HOST + ":5000/analysis"
+        await axios(url).then(
             (response) => {
                 this.setState({
                     labels: response.data.city,
