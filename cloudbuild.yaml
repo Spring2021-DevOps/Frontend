@@ -1,29 +1,7 @@
-version: 0.2
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/csye7220-311404/uber-react', '.']
+  timeout: 500s
 
-phases:
-  install:
-    runtime-versions:
-      docker: 18
-    commands:
-      - echo Installing app dependencies...
-
-  pre_build:
-    commands:
-      - echo Logging in to Amazon EKS...
-
-  build:
-    commands:
-      - docker login -u divyavgirase -p $_DOCKER_SECRET
-      - docker-compose up -d --build
-      - echo Building images...
-      - >
-        docker build \
-          -f Uber-React/Dockerfile \
-          -t gcr.io/csye7220-311404/sample:prod \
-          --build-arg NODE_ENV=production \
-          --build-arg REACT_APP_API_SERVICE_URL=$REACT_APP_API_SERVICE_URL \
-          ./Uber-React
-  post_build:
-    commands:
-    - echo Pushing prod images to ECR...
-    - docker push gcr.io/csye7220-311404/sample:prdo
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/csye7220-311404/uber-react']
