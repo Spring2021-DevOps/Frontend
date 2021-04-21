@@ -18,6 +18,3 @@ steps:
   env:
   - 'CLOUDSDK_COMPUTE_REGION=us-east1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=gkecluster'
-
-
-  envsubst < Uber-Deployment/sa-frontend-deployment.yaml | kubectl apply -f -
