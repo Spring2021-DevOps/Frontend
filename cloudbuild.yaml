@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/csye7220-311404/uber-react:prod', '.']
+  args: ['build', '-t', 'gcr.io/csye7220-311404/uber-react:$COMMIT_SHA', '.']
   timeout: 500s
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/csye7220-311404/uber-react:prod']
+  args: ['push', 'gcr.io/csye7220-311404/uber-react:$COMMIT_SHA']
