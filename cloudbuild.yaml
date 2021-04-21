@@ -5,3 +5,12 @@ steps:
 
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/csye7220-311404/uber-react:$COMMIT_SHA']
+
+
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=kubernetes-resource-file
+  - --image=gcr.io/csye7220-311404/uber-react:eafaef900960c0468a6fe36939ddd556bc917542
+  - --location=us-east1
+  - --cluster=gkecluster
