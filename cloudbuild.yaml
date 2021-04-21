@@ -12,6 +12,12 @@ steps:
   - 'CLOUDSDK_COMPUTE_REGION=us-east1'
   - 'CLOUDSDK_CONTAINER_CLUSTER=gkecluster'
 
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'sa-frontend-lb.yaml']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=us-east1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=gkecluster'
+
 # - name: "gcr.io/cloud-builders/gke-deploy"
 #   args:
 #   - run
