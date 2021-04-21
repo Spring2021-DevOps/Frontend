@@ -1,28 +1,30 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/csye7220-311404/uber-react:$COMMIT_SHA', '.']
-  timeout: 500s
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'gcr.io/csye7220-311404/uber-react:prod', '.']
+#   timeout: 500s
 
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/csye7220-311404/uber-react:$COMMIT_SHA']
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['push', 'gcr.io/csye7220-311404/uber-react:latest']
 
 
-- name: 'gcr.io/cloud-builders/kubectl'
-  args: ['set', 'image', 'sa-frontend-deployment.yaml', 'uber-react=gcr.io/csye7220-311404/uber-react:$COMMIT_SHA']
-  env:
-  - 'CLOUDSDK_COMPUTE_REGION=us-east1'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=gkecluster'
+# - name: 'gcr.io/cloud-builders/kubectl'
+#   args: ['set', 'image', 'sa-frontend-deployment.yaml', 'uber-react=gcr.io/csye7220-311404/uber-react:$COMMIT_SHA']
+#   env:
+#   - 'CLOUDSDK_COMPUTE_REGION=us-east1'
+#   - 'CLOUDSDK_CONTAINER_CLUSTER=gkecluster'
 
+
+# cat k8s.yml | envsubst | kubectl apply -f -
 # - name: 'gcr.io/csye7220-311404/envsubst'
 #   args: ['/workspace/sa-frontend-deployment.yaml', '/workspace/sa-frontend-deployment.yaml']
 #   env:
 #   - 'COMMIT_SHA=$COMMIT_SHA'
 
-# - name: 'gcr.io/cloud-builders/kubectl'
-#   args: ['apply', '-f', 'sa-frontend-deployment.yaml']
-#   env:
-#   - 'CLOUDSDK_COMPUTE_REGION=us-east1'
-#   - 'CLOUDSDK_CONTAINER_CLUSTER=gkecluster'
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: ['apply', '-f', 'sa-frontend-deployment.yaml', '--force']
+  env:
+  - 'CLOUDSDK_COMPUTE_REGION=us-east1'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=gkecluster'
 
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['apply', '-f', 'sa-frontend-lb.yaml']
