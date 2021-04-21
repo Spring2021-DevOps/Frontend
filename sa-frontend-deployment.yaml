@@ -19,7 +19,7 @@ spec:
         app: uber-react
     spec:
       containers:
-          - image: gcr.io/csye7220-311404/uber-react:6bcc61c18ae5b85033ca0ff2004bacfe4c6d2b18
+          - image: gcr.io/csye7220-311404/uber-react:$COMMIT_SHA
             imagePullPolicy: Always 
             name: sa-frontend 
             ports:
