@@ -4,15 +4,15 @@ import { View, Image, Text, StyleSheet } from "react-native";
 const TweetItem = ({ item: booking }) => {
   return (
     <View style={styles.row}>
-      <Image style={styles.rowIcon} source={""} />
+      
+      <img style={{width: 74,height:74,marginRight: 75,marginLeft:30,borderRadius: "50%",boxShadow: "0 1px 2px 0 rgba(0,0,0,0.1)"}} src={require('../../ubericon.webp')} />
       <View style={styles.rowData}>
-  
-        <Text style={styles.rowDataSubText}>First Name           : {booking.firstName}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Last Name            : {booking.lastName}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Source                   : {booking.source}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Destination          : {booking.destination}</Text><br></br>
-        <Text style={styles.rowDataSubText}>Journey Date       : {booking.journeyDate}</Text><br></br>
-
+      <Text style={styles.rowDataText}>Username           : {booking.user}</Text><br></br>
+        <Text style={styles.rowDataText}>First Name           : {booking.firstName}</Text><br></br>
+        <Text style={styles.rowDataText}>Last Name            : {booking.lastName}</Text><br></br>
+        <Text style={styles.rowDataText}>Source                   : {booking.source}</Text><br></br>
+        <Text style={styles.rowDataText}>Destination          : {booking.destination}</Text><br></br>
+        <Text style={styles.rowDataText}>Journey Date       : {booking.journeyDate}</Text><br></br>
       </View>
     </View>
   );
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 15,
-    marginBottom: 25,
+    marginBottom: 5,
     backgroundColor: "white",
     borderBottomWidth: StyleSheet.hairlineWidth,
     borderBottomColor: "rgba(0,0,0,0.1)"
@@ -45,15 +45,19 @@ const styles = StyleSheet.create({
     flex: 1
   },
   rowDataText: {
-    fontSize: 15,
+    fontSize: 17,
     textTransform: "capitalize",
-    color: "#4b4b4b"
+    color: "black"
   },
   rowDataSubText: {
-    fontSize: 17,
-    opacity: 0.9,
-    color: "black",
+    fontSize: 13,
+    opacity: 0.8,
+    color: "#a8a689",
     marginTop: 4
+  },
+  map: {
+    width:'10%',
+    height:'10%'  
   }
 });
 

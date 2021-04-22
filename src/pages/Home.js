@@ -13,13 +13,13 @@ const styles = theme => ({
     opacity: 0.7
   }
 });
-
+console.log(window.history);
 function Home(props) {
   const { classes } = props;
 
   return (
       <div className={classes.root}>
-        <h1>UBER Bus Booking App</h1>
+        <h1>Uber Bus Booking App</h1>
       </div>
   );
 }
