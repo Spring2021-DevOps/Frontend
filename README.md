@@ -12,5 +12,5 @@ k**UBER REACT App**
 	3. Add a symbolic link to sites-enabled
 	4. sudo systemctl restart nginx
 	
--  The application can be run on an AWS instance using the terraform script
+-  The application can be run on an AWS instance using the terraform script 
 
