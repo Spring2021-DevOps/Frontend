@@ -89,22 +89,20 @@ const Bookatrip = () => {
   const classes = useStyles();
   const history = useHistory();
   const [username, setUsername] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+
   const [source, setSource] = useState('');
   const [destination, setDestination] = useState('');
   const [journeyDate, setJourneyDate] = useState('');
 
 
     // async launch POST with access token
-    const postTweet = async (user, firstNameP, lastNameP, sourceP, destinationP, journeyDateP) => {
+    const postTweet = async (user, sourceP, destinationP, journeyDateP) => {
       const access_token = getAccessToken();
       console.log('access_token:');
+      console.log(localStorage.getItem("username"));
       console.log(access_token);
       const paramdict = {
         'user': user,
-        'firstNameP': firstNameP,
-        'lastNameP': lastNameP,
         'sourceP': sourceP,
         'destinationP': destinationP,
         'journeydDateP': journeyDateP,
@@ -113,7 +111,7 @@ const Bookatrip = () => {
 
     console.log('postTweet paramdict:');
     console.log(paramdict);
-
+    console.log(localStorage.getItem(username));
     try {
       const config = {
           method: 'POST',
@@ -148,6 +146,7 @@ const Bookatrip = () => {
 
         // back to landing page!
         history.push("/");
+        history.push(data);
       } catch (err) {
         console.log(err);
         alert("exception on reply!");
@@ -173,7 +172,7 @@ const Bookatrip = () => {
     //const img_index = Math.floor(Math.random() * 100) + 1 ;
     //const img_url = 'https://randomuser.me/api/portraits/' + img_gender + '/' + img_index.toString() + '.jpg';
     
-    postTweet(username, firstName, lastName, source, destination, journeyDate);  
+    postTweet(username, source, destination, journeyDate);  
    // postTweet(username, tweet, priv, img_url);  
     alert('Booking done!');
   }
@@ -199,34 +198,7 @@ const Bookatrip = () => {
               autoComplete="username"
               autoFocus
             />
-            <TextField
-              value={firstName}
-              onInput={(e) => setFirstName(e.target.value)}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="firstName"
-              label={'First Name'}
-              name="firstName"
-              inputProps={{ pattern: "^[a-zA-Z]+$" }}
-              autoComplete="firstName"
-              autoFocus
-            />
-            <TextField
-              value={lastName}
-              onInput={(e) => setLastName(e.target.value)}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="lastName"
-              label={'Last Name'}
-              name="lastName"
-              inputProps={{ pattern: "^[a-zA-Z]+$" }}
-              autoComplete="lastName"
-              autoFocus
-            />
+
             <TextField
              value={source} 
                onInput={(e) => setSource(e.target.value)} 

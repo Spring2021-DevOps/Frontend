@@ -14,7 +14,18 @@ const THome = () => {
       //const res = await fetch("http://localhost:5000/tweets-results");
       //const res = await fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/tweets-results`);
       //const res = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/tweets-results`);
-      const data = {user: "anishkapuskar@gmail.com"};
+      console.log(localStorage.getItem("username"));
+      const data = {user: localStorage.getItem("username")};
+
+      if (localStorage.getItem("username") != null) {
+        
+        console.log("showing bookings");
+        
+    } else {
+        alert("Please login to see bookings!");
+    }
+
+     // const data = {user: "anishkapuskar@gmail.com"};
       //const res = await fetch("http://a9d6cf8a418fc4ea4a7744df88f3c9cc-1251485280.us-east-1.elb.amazonaws.com:5000/bookings");
       const res = await fetch(`http://localhost:5000/bookings-user-week-results?user=${encodeURIComponent(data.user)}`);
      // const res = await fetch("http://localhost:5000/bookings");

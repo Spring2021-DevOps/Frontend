@@ -8,8 +8,6 @@ const TweetItem = ({ item: booking }) => {
       <img style={{width: 74,height:74,marginRight: 75,marginLeft:30,borderRadius: "50%",boxShadow: "0 1px 2px 0 rgba(0,0,0,0.1)"}} src={require('../../ubericon.webp')} />
       <View style={styles.rowData}>
       <Text style={styles.rowDataText}>Username           : {booking.user}</Text><br></br>
-        <Text style={styles.rowDataText}>First Name           : {booking.firstName}</Text><br></br>
-        <Text style={styles.rowDataText}>Last Name            : {booking.lastName}</Text><br></br>
         <Text style={styles.rowDataText}>Source                   : {booking.source}</Text><br></br>
         <Text style={styles.rowDataText}>Destination          : {booking.destination}</Text><br></br>
         <Text style={styles.rowDataText}>Journey Date       : {booking.journeyDate}</Text><br></br>
