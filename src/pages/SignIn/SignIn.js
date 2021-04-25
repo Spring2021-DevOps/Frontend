@@ -128,8 +128,8 @@ const SignIn = () => {
     //fetch("http://localhost:5000/login", config)
     //fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/login`, config)
     //fetch(`${process.env.REACT_APP_API_SERVICE_URL}/login`, config)
-    fetch("http://ac32fe78ea9af47c1945330591cf44f8-1773557316.us-east-1.elb.amazonaws.com:5000/login", config)
-    //fetch("http://localhost:5000/login", config)
+    //fetch("http://ac32fe78ea9af47c1945330591cf44f8-1773557316.us-east-1.elb.amazonaws.com:5000/login", config)
+    fetch("http://localhost:5000/login", config)
       .then(response => response.json())
       .then(data => {
 

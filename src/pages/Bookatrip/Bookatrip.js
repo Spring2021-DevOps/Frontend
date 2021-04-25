@@ -128,18 +128,18 @@ const Bookatrip = () => {
       //const response = await fetch("http://localhost:5000/tweet", config);
       //const response = await fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/tweet`, config);
       //const response = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/tweet`, config);
-    const response = await fetch("http://a9d6cf8a418fc4ea4a7744df88f3c9cc-1251485280.us-east-1.elb.amazonaws.com:5000/book-trip", config);
-  //    const response = await fetch("http://localhost:5000/book-trip", config);
+    //const response = await fetch("http://a9d6cf8a418fc4ea4a7744df88f3c9cc-1251485280.us-east-1.elb.amazonaws.com:5000/book-trip", config);
+      const response = await fetch("http://localhost:5000/book-trip", config);
      //const response = await fetch("http://localhost:5000/book-trip", config);
-      const json = await response.json()
-      if (response.ok) {
+     // const json = await response.json()
+     // if (response.ok) {
           //return json
           //return response
-          console.log("success on send.");
+     //     console.log("success on send.");
           
-      } else {
-          alert("response: " + response.toString());
-      }
+     // } else {
+     //     alert("response: " + response.toString());
+     // }
 
       try {
         const data = await response.json();

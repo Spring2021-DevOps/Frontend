@@ -50,6 +50,56 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+
+const addUser = async (username, password) => {
+  console.log("I am in add user")
+  const paramdict = {
+    'username': username,
+    'password': password
+  }
+
+  try {
+    const config = {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(paramdict)
+    }
+    const response = await fetch("http://localhost:5000/register", config);
+    //const json = await response.json()
+    if (response.ok) {
+        //return json
+        //return response
+        console.log("success on send.");
+        
+    } else {
+        alert("response: " + response.toString());
+    }
+
+    try {
+      const data = await response.json();
+      console.log("on reply:")
+      alert("User " + data["username"] + " registered successfully")
+
+
+      // back to landing page!
+      //history.push("/");
+    } catch (err) {
+      console.log(err);
+      alert("exception on reply!");
+    }
+
+} catch (error) {
+  console.log(error);
+  alert("exception on send");
+}
+};
+
+  
+
+
 const SignUp = () => {
   const classes = useStyles()
   //const intl = useIntl()
@@ -63,12 +113,18 @@ const SignUp = () => {
 
     // fwo: register new user!
     //.. return userid
-
+    console.log(username)
+    console.log(password)
     // save more: name, group, userid
-    authenticate({
-      displayName: 'User',
-      email: username,
-    })
+    
+    addUser(username, password)
+    setUsername('')
+    setPassword('')
+
+    // authenticate({
+    //   displayName: 'User',
+    //   email: username,
+    // })
   }
 
   const authenticate = (user) => {
