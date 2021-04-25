@@ -129,8 +129,9 @@ const SignIn = () => {
     //fetch("http://localhost:5000/login", config)
     //fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/login`, config)
     //fetch(`${process.env.REACT_APP_API_SERVICE_URL}/login`, config)
-    //fetch("http://ac32fe78ea9af47c1945330591cf44f8-1773557316.us-east-1.elb.amazonaws.com:5000/login", config)
-    fetch("http://localhost:5000/login", config)
+    fetch("http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/login", config)
+    //fetch("http://localhost:5000/login", config)
+    //fetch(`${process.env.REACT_APP_API_SERVICE_URL}/login`, config)
       .then(response => response.json())
       .then(data => {
 
@@ -187,8 +188,9 @@ const SignIn = () => {
     //fetch("http://localhost:5000/fastlogin", config)
     //fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/fastlogin`, config)
     //fetch(`${process.env.REACT_APP_API_SERVICE_URL}/fastlogin`, config)
-   // fetch("http://a9d6cf8a418fc4ea4a7744df88f3c9cc-1251485280.us-east-1.elb.amazonaws.com:5000/fastlogin", config)
-    fetch("http://localhost:5000/fastlogin", config)
+    fetch("http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/fastlogin", config)
+    //fetch("http://localhost:5000/fastlogin", config)
+   // fetch(`${process.env.REACT_APP_API_SERVICE_URL}/fastlogin`, config)
       .then(response => response.json())
       .then(data => {
 

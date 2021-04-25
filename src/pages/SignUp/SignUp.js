@@ -67,7 +67,8 @@ const addUser = async (username, password) => {
         },
         body: JSON.stringify(paramdict)
     }
-    const response = await fetch("http://localhost:5000/register", config);
+    const response = await fetch("http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/register", config);
+  //  const response = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/register`, config);
     //const json = await response.json()
     if (response.ok) {
         //return json
