@@ -112,6 +112,12 @@ const Bookatrip = () => {
     console.log('postTweet paramdict:');
     console.log(paramdict);
     console.log(localStorage.getItem(username));
+
+    if (user == null){
+      alert("Please login to Book a Trip!");
+    }
+
+    else{
     try {
       const config = {
           method: 'POST',
@@ -147,6 +153,7 @@ const Bookatrip = () => {
 
         // back to landing page!
         history.push("/");
+        
         history.push(data);
       } catch (err) {
         console.log(err);
@@ -157,6 +164,7 @@ const Bookatrip = () => {
       console.log(error);
       alert("exception on send");
     }
+  }
   };
 
 
@@ -175,7 +183,8 @@ const Bookatrip = () => {
     
     postTweet(source, destination, journeyDate);  
    // postTweet(username, tweet, priv, img_url);  
-    alert('Booking done!');
+    
+   
   }
 
   return (
