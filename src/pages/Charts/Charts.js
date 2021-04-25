@@ -40,8 +40,8 @@ export default class Charts extends React.Component {
       }
       async componentDidMount() {
         console.log("I am in mount");
-         var url = "http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/analysis"
-   //    var url = `${process.env.REACT_APP_API_SERVICE_URL}/analysis`
+    //     var url = "http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/analysis"
+      var url = `${process.env.REACT_APP_API_SERVICE_URL}/analysis`
 
 
         await axios(url).then(

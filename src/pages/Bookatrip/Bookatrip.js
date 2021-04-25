@@ -132,9 +132,9 @@ const Bookatrip = () => {
       //const response = await fetch("http://localhost:5000/tweet", config);
       //const response = await fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/tweet`, config);
       //const response = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/tweet`, config);
-    const response = await fetch("http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/book-trip", config);
+   // const response = await fetch("http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/book-trip", config);
       //const response = await fetch("http://localhost:5000/book-trip", config);
-     // const response = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/book-trip`, config);
+      const response = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/book-trip`, config);
      //const response = await fetch("http://localhost:5000/book-trip", config);
      // const json = await response.json()
      // if (response.ok) {
@@ -183,7 +183,7 @@ const Bookatrip = () => {
     
     postTweet(source, destination, journeyDate);  
    // postTweet(username, tweet, priv, img_url);  
-    
+
    
   }
 
