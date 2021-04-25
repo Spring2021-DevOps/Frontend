@@ -96,10 +96,10 @@ const Bookatrip = () => {
 
 
     // async launch POST with access token
-    const postTweet = async (user, sourceP, destinationP, journeyDateP) => {
+    const postTweet = async (sourceP, destinationP, journeyDateP) => {
       const access_token = getAccessToken();
       console.log('access_token:');
-      console.log(localStorage.getItem("username"));
+      const user = localStorage.getItem("username");
       console.log(access_token);
       const paramdict = {
         'user': user,
@@ -173,7 +173,7 @@ const Bookatrip = () => {
     //const img_index = Math.floor(Math.random() * 100) + 1 ;
     //const img_url = 'https://randomuser.me/api/portraits/' + img_gender + '/' + img_index.toString() + '.jpg';
     
-    postTweet(username, source, destination, journeyDate);  
+    postTweet(source, destination, journeyDate);  
    // postTweet(username, tweet, priv, img_url);  
     alert('Booking done!');
   }
@@ -186,19 +186,6 @@ const Bookatrip = () => {
             {'Book an UBER Bus Trip'}
           </Typography>
           <form className={classes.form} onSubmit={handleSubmit} >
-          <TextField
-              value={username}
-              onInput={(e) => setUsername(e.target.value)}
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="username"
-              label={'User Name'}
-              name="username"
-              autoComplete="username"
-              autoFocus
-            />
 
             <TextField
              value={source} 

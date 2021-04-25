@@ -142,7 +142,7 @@ const SignIn = () => {
         if (typeof Storage !== 'undefined') {
           try {
               localStorage.setItem("username", username);
-              alert(username);
+             // alert(username);
           } catch (ex) {
               console.log(ex);
           }
