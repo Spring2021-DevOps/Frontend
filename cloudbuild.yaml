@@ -1,9 +1,17 @@
 steps:
 
 #BUILD DOCKER IMAGE WITH LATEST TAG
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: ['build', '-t', 'gcr.io/$PROJECT_ID/uber-react:latest', '.']
+#   timeout: 500s
+
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/$PROJECT_ID/uber-react:latest', '.']
-  timeout: 500s
+  args: ['build',
+         '--build-arg',
+         'REACT_APP_API_SERVICE_URL=aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com',
+         '-t',
+         'gcr.io/$PROJECT_ID/uber-react:latest',
+         '.']
 
 #PUSH DOCKER IMAGE TO CONTAINER REGISTRY
 - name: 'gcr.io/cloud-builders/docker'

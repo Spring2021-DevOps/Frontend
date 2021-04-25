@@ -26,7 +26,8 @@ const THome = () => {
     }
 
      // const data = {user: "anishkapuskar@gmail.com"};
-      const res = await fetch(`http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/bookings-user-week-results?user=${encodeURIComponent(data.user)}`);
+      //const res = await fetch(`http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/bookings-user-week-results?user=${encodeURIComponent(data.user)}`);
+      const res = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}:5000/bookings-user-week-results?user=${encodeURIComponent(data.user)}`);
      // const res = await fetch(`http://localhost:5000/bookings-user-week-results?user=${encodeURIComponent(data.user)}`);
      // const res = await fetch("http://localhost:5000/bookings");
      //const res = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/bookings-user-week-results?user=${encodeURIComponent(data.user)}`);
