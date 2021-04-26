@@ -118,6 +118,7 @@ const Bookatrip = () => {
     }
 
     else{
+      alert("Your trip has been Booked!");
     try {
       const config = {
           method: 'POST',
