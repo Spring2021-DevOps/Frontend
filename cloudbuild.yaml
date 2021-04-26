@@ -8,7 +8,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build',
          '--build-arg',
-         'REACT_APP_API_SERVICE_URL="a91774fa7c67646819bfc20cb0a9fe4b-1640754154.us-east-1.elb.amazonaws.com',
+         'REACT_APP_API_SERVICE_URL="a5cde0e83da0747f9b951faf7caa32f5-1469133538.us-east-1.elb.amazonaws.com"',
          '-t',
          'gcr.io/$PROJECT_ID/uber-react:latest',
          '.']

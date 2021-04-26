@@ -19,7 +19,7 @@ RUN npm ci
 
 # set environment variables
 #ARG REACT_APP_API_SERVICE_URL
-ENV REACT_APP_API_SERVICE_URL="http://a91774fa7c67646819bfc20cb0a9fe4b-1640754154.us-east-1.elb.amazonaws.com"
+ENV REACT_APP_API_SERVICE_URL="http://a5cde0e83da0747f9b951faf7caa32f5-1469133538.us-east-1.elb.amazonaws.com"
 ARG NODE_ENV
 ENV NODE_ENV $NODE_ENV
 
