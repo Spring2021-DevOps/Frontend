@@ -131,7 +131,7 @@ const SignIn = () => {
     //fetch(`${process.env.REACT_APP_API_SERVICE_URL}/login`, config)
    // fetch("http://aa1f1319b43a64c5388b2505b86edfe8-1002164639.us-east-1.elb.amazonaws.com:5000/login", config)
     //fetch("http://localhost:5000/login", config)
-    fetch(`${process.env.REACT_APP_API_SERVICE_URL}/login`, config)
+    fetch(`${process.env.REACT_APP_API_SERVICE_URL}:5000/login`, config)
       .then(response => response.json())
       .then(data => {
 
